@@ -1,0 +1,7 @@
+name: DynmapEssentials
+version: ${project.version}
+main: me.kingtux.dynmapessentials.DynmapEssentials
+api-version: 1.16
+depend: [ dynmap, Essentials ]
+authors: [ KingTux ]
+description: Adds support for Essentials Warps inside Dynmap
