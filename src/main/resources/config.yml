@@ -1,2 +1,6 @@
 show-homes: false
 show-warps: true
+home:
+  show-offline: false
+  # Placeholders: name=Players User Name, home=Home Name
+  format: "{name}: {home}"

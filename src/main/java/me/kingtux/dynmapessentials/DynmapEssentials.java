@@ -8,6 +8,7 @@ import net.ess3.api.InvalidWorldException;
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
+import org.bukkit.OfflinePlayer;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;
@@ -18,6 +19,7 @@ import org.dynmap.markers.MarkerAPI;
 import org.dynmap.markers.MarkerSet;
 
 import java.util.List;
+import java.util.UUID;
 
 public final class DynmapEssentials extends JavaPlugin implements Runnable, Listener {
     private Warps essentialsWarps;
@@ -42,6 +44,11 @@ public final class DynmapEssentials extends JavaPlugin implements Runnable, List
             pluginManager.disablePlugin(this);
         }
         saveDefaultConfig();
+        getConfig().addDefault("show-homes", false);
+        getConfig().addDefault("show-warps", true);
+        getConfig().addDefault("home.show-offline", false);
+        getConfig().addDefault("home.format", "{name}: {home}");
+        saveConfig();
         markerAPI = dynmapAPI.getMarkerAPI();
         Metrics metrics = new Metrics(this, 9786);
         //Rerun this every minute
@@ -93,11 +100,14 @@ public final class DynmapEssentials extends JavaPlugin implements Runnable, List
         if (markerSet == null) {
             markerSet = markerAPI.createMarkerSet("Essentials_Homes", "Homes", null, false);
         }
-        for (Player onlinePlayer : Bukkit.getOnlinePlayers()) {
-            User user = essentials.getUser(onlinePlayer);
+
+        for (UUID uuid : essentials.getUserMap().getAllUniqueUsers()) {
+            User user = essentials.getUser(uuid);
+            OfflinePlayer offlinePlayer = Bukkit.getOfflinePlayer(uuid);
+            if (!offlinePlayer.isOnline() && !getConfig().getBoolean("home.show-offline")) continue;
             List<String> homes = user.getHomes();
             for (String home : homes) {
-                String homeName = new StringBuilder(onlinePlayer.getName()).append(": ").append(home).toString();
+                String homeName = getConfig().getString("home.format").replace("{name}", offlinePlayer.getName()).replace("{home}", home);
                 try {
                     Location location = user.getHome(home);
 
