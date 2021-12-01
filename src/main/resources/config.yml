@@ -5,5 +5,5 @@ home:
   # Placeholders: name=Players User Name, home=Home Name
   format: "{name}: {home}"
   marker: pin
-WARP:
+warp:
   marker: pin
