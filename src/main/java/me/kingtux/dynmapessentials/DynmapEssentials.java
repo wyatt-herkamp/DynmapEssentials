@@ -87,7 +87,7 @@ public final class DynmapEssentials extends JavaPlugin implements Runnable, List
                 //Update the Location
                 markerSet.findMarkerByLabel(s).setLocation(location.getWorld().getName(), location.getX(), location.getY(), location.getZ());
             } else {
-                Marker marker = markerSet.createMarker(null, s, location.getWorld().getName(), location.getX(), location.getY(), location.getZ(), markerAPI.getMarkerIcon("pin"), false);
+                Marker marker = markerSet.createMarker(null, s, location.getWorld().getName(), location.getX(), location.getY(), location.getZ(), markerAPI.getMarkerIcon(getConfig().getString("home.marker","pin")), false);
                 marker.setLabel(s);
                 marker.setMarkerIcon(markerAPI.getMarkerIcon("pin"));
                 marker.setLocation(location.getWorld().getName(), location.getX(), location.getY(), location.getZ());
@@ -115,7 +115,7 @@ public final class DynmapEssentials extends JavaPlugin implements Runnable, List
                         //Update the Location
                         markerSet.findMarkerByLabel(homeName).setLocation(location.getWorld().getName(), location.getX(), location.getY(), location.getZ());
                     } else {
-                        Marker marker = markerSet.createMarker(null, homeName, location.getWorld().getName(), location.getX(), location.getY(), location.getZ(), markerAPI.getMarkerIcon("pin"), false);
+                        Marker marker = markerSet.createMarker(null, homeName, location.getWorld().getName(), location.getX(), location.getY(), location.getZ(), markerAPI.getMarkerIcon(getConfig().getString("home.marker","pin")), false);
                         marker.setLabel(homeName);
                         marker.setMarkerIcon(markerAPI.getMarkerIcon("bed"));
                         marker.setLocation(location.getWorld().getName(), location.getX(), location.getY(), location.getZ());

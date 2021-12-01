@@ -4,3 +4,6 @@ home:
   show-offline: false
   # Placeholders: name=Players User Name, home=Home Name
   format: "{name}: {home}"
+  marker: pin
+WARP:
+  marker: pin
