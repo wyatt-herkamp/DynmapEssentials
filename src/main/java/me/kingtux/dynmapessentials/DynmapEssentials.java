@@ -16,6 +16,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import org.dynmap.DynmapAPI;
 import org.dynmap.markers.Marker;
 import org.dynmap.markers.MarkerAPI;
+import org.dynmap.markers.MarkerIcon;
 import org.dynmap.markers.MarkerSet;
 
 import java.util.List;
@@ -87,9 +88,10 @@ public final class DynmapEssentials extends JavaPlugin implements Runnable, List
                 //Update the Location
                 markerSet.findMarkerByLabel(s).setLocation(location.getWorld().getName(), location.getX(), location.getY(), location.getZ());
             } else {
-                Marker marker = markerSet.createMarker(null, s, location.getWorld().getName(), location.getX(), location.getY(), location.getZ(), markerAPI.getMarkerIcon(getConfig().getString("warp.marker","pin")), false);
+                MarkerIcon icon = markerAPI.getMarkerIcon(getConfig().getString("warp.marker", "pin"));
+                Marker marker = markerSet.createMarker(null, s, location.getWorld().getName(), location.getX(), location.getY(), location.getZ(), icon, false);
                 marker.setLabel(s);
-                marker.setMarkerIcon(markerAPI.getMarkerIcon("pin"));
+                marker.setMarkerIcon(icon);
                 marker.setLocation(location.getWorld().getName(), location.getX(), location.getY(), location.getZ());
             }
         }
@@ -115,9 +117,10 @@ public final class DynmapEssentials extends JavaPlugin implements Runnable, List
                         //Update the Location
                         markerSet.findMarkerByLabel(homeName).setLocation(location.getWorld().getName(), location.getX(), location.getY(), location.getZ());
                     } else {
-                        Marker marker = markerSet.createMarker(null, homeName, location.getWorld().getName(), location.getX(), location.getY(), location.getZ(), markerAPI.getMarkerIcon(getConfig().getString("home.marker","pin")), false);
+                        MarkerIcon icon = markerAPI.getMarkerIcon(getConfig().getString("home.marker", "pin"));
+                        Marker marker = markerSet.createMarker(null, homeName, location.getWorld().getName(), location.getX(), location.getY(), location.getZ(), icon, false);
                         marker.setLabel(homeName);
-                        marker.setMarkerIcon(markerAPI.getMarkerIcon("bed"));
+                        marker.setMarkerIcon(icon);
                         marker.setLocation(location.getWorld().getName(), location.getX(), location.getY(), location.getZ());
                     }
                 } catch (Exception e) {
