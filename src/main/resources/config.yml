@@ -1,5 +1,7 @@
 show-homes: false
 show-warps: true
+# Refresh Rate in Ticks. By default this is set to every minute. Increase this if you have a large amount of warps/homes
+refresh-rate: 1200
 home:
   show-offline: false
   # Placeholders: name=Players User Name, home=Home Name

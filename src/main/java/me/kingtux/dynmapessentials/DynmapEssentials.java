@@ -53,7 +53,7 @@ public final class DynmapEssentials extends JavaPlugin implements Runnable, List
         markerAPI = dynmapAPI.getMarkerAPI();
         Metrics metrics = new Metrics(this, 9786);
         //Rerun this every minute
-        getServer().getScheduler().runTaskTimer(this, this, 0, 1200);
+        getServer().getScheduler().runTaskTimer(this, this, 0, getConfig().getInt("refresh-rate", 1200));
     }
 
     @Override
