@@ -34,7 +34,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.16.4-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT")
     compileOnly("net.ess3:EssentialsX:2.18.0")
     compileOnly("us.dynmap:dynmap-api:3.6")
     compileOnly("us.dynmap:DynmapCoreAPI:3.6")
