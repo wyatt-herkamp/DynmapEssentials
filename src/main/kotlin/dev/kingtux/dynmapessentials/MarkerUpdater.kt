@@ -90,7 +90,7 @@ class MarkerUpdater(
             markerSet = markerAPI.createMarkerSet("Essentials_Homes_V1_3", "Homes", null, false)
         }
         for (uuid in essentials.userMap.allUniqueUsers) {
-            val user = essentials.getUser(uuid)
+            val user = essentials.getUser(uuid) ?: continue
             val offlinePlayer = Bukkit.getOfflinePlayer(uuid)
             if (!offlinePlayer.isOnline && !config.showOffline) continue
             val homes = user.homes
