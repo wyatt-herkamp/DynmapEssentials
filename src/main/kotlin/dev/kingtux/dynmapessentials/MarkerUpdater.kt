@@ -105,7 +105,7 @@ class MarkerUpdater(
                 }
                 if (markerSet.findMarker(homeId) != null) {
                     //Update the Location
-                    markerSet.findMarker(homeName).let {
+                    markerSet.findMarker(homeId).let {
                         it.setLocation(location.world!!.name, location.x, location.y, location.z)
                         it.markerIcon = markerAPI.getMarkerIcon(config.homeMarker)
                     }
