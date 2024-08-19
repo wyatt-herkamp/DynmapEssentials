@@ -42,7 +42,7 @@ dependencies {
     compileOnly("net.ess3:EssentialsX:2.18.0")
     compileOnly("us.dynmap:dynmap-api:3.6")
     compileOnly("us.dynmap:DynmapCoreAPI:3.6")
-    implementation("org.bstats:bstats-bukkit:3.0.2")
+    implementation("org.bstats:bstats-bukkit:3.0.3")
     implementation(kotlin("stdlib-jdk8"))
 }
 
