@@ -32,7 +32,7 @@ repositories {
     }
     maven {
         name = "papermc"
-        url = uri("https://papermc.io/repo/repository/maven-public/")
+        url = uri("https://repo.papermc.io/repository/maven-public/")
     }
     mavenCentral()
 }
@@ -47,7 +47,7 @@ dependencies {
 }
 
 group = "dev.kingtux"
-version = "1.3"
+version = "1.4"
 description = "DynmapEssentials"
 tasks.withType<JavaCompile>() {
     options.encoding = "UTF-8"
