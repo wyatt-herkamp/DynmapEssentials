@@ -9,7 +9,7 @@ plugins {
     `maven-publish`
     id("com.github.johnrengelman.shadow") version "8.1.1"
     kotlin("jvm")
-    id("net.minecrell.plugin-yml.bukkit") version "0.6.0"
+    id("de.eldoria.plugin-yml.bukkit") version "0.8.0"
     id("idea")
 }
 
